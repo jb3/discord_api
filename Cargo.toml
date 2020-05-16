@@ -4,9 +4,9 @@ description = "Interact with the Discord API from your shell"
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/jos-b/discord"
-version = "0.2.0"
-keywords = ["cli", "discord", "api", "shell", "tool"]
-categories = ["command-line-interface", "command-line-utilities"]
+version = "0.2.1"
+keywords = ["cli", "discord", "api", "shell", "tool", "libary"]
+categories = ["command-line-interface", "command-line-utilities", "api-bindings", "asynchronous"]
 authors = ["Joe Banks <joseph@josephbanks.me>"]
 edition = "2018"
 
