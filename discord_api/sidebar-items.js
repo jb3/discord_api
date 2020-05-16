@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["http",""],["models",""]]});
+initSidebarItems({"mod":[["http",""],["models","Module containing various structures received from the Discord API."]]});
