@@ -1,3 +1,8 @@
+//! Module containing various structures received from the Discord API.
+//!
+//! Structures here can be created manually though it is advised to fetch actual data
+//! using the methods exposed by the http module (which are rexported to discord_api)
+
 use serde::Deserialize;
 
 /// A struct representing a Discord guild invite, fetched through [`discord_api::get_invite`](../http/fn.get_invite.html)

@@ -1,8 +1,8 @@
 # Discord
 
-Interact with the Discord API from your command line!
+Library and binary providing interaction with features of the Discord API.
 
-## Supported utilities
+## Command line utility
 
 ### Feature Fetching
 
