@@ -1,26 +1,28 @@
-use clap::{Arg, App};
+use clap::{App, Arg};
 
 #[macro_use]
 extern crate log;
 
 mod apps;
-mod http;
 
 use log::Level;
 
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+const DESCRIPTION: &str = env!("CARGO_PKG_DESCRIPTION");
+
 #[tokio::main]
 async fn main() -> Result<(), reqwest::Error> {
-
-    let mut app = App::new("Discord")
-        .version("1.0")
+    let mut app = App::new("discord")
+        .version(VERSION)
         .author("Joe Banks <joseph@josephbanks.me>")
-        .about("Interact with the Discord API from your shell")
+        .about(DESCRIPTION)
         .subcommand(apps::invite::get_app())
-        .arg(Arg::new("v")
-            .short('v')
-            .multiple(true)
-            .takes_value(false)
-            .about("Sets the level of verbosity")
+        .arg(
+            Arg::new("v")
+                .short('v')
+                .multiple(true)
+                .takes_value(false)
+                .about("Sets the level of verbosity"),
         );
 
     let matches = app.clone().get_matches();
@@ -29,7 +31,7 @@ async fn main() -> Result<(), reqwest::Error> {
         0 => Level::Warn,
         1 => Level::Info,
         2 => Level::Debug,
-        _ => Level::Trace
+        _ => Level::Trace,
     };
 
     simple_logger::init_with_level(level).expect("Could not init logging");

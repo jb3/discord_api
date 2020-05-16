@@ -1,0 +1,47 @@
+name: Test & Lint
+
+on:
+  push:
+    branches:
+      - master
+      - devel
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly
+            components: clippy, rustfmt
+            override: true
+      - uses: actions-rs/clippy-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: --all-features -- -W clippy::pedantic -W clippy::all -W clippy::nursery
+
+      - name: Run cargo fmt
+        uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly
+            override: true
+
+      - uses: actions/checkout@v1
+      - name: Run cargo test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test

@@ -1,10 +1,10 @@
 [package]
-name = "discord"
+name = "discord_api"
 description = "Interact with the Discord API from your shell"
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/jos-b/discord"
-version = "0.1.0"
+version = "0.2.0"
 keywords = ["cli", "discord", "api", "shell", "tool"]
 categories = ["command-line-interface", "command-line-utilities"]
 authors = ["Joe Banks <joseph@josephbanks.me>"]
@@ -16,7 +16,16 @@ edition = "2018"
 clap = "3.0.0-beta.1"
 reqwest = { version = "0.10.4", features = ["json"] }
 tokio = { version = "0.2", features = ["macros"] }
+serde = { version = "1.0.110", features = ["derive"] }
 serde_json = "1.0"
 colored = "1.9"
 log = "0.4.8"
 simple_logger = "1.6.0"
+
+[[bin]]
+name = "discord"
+path = "bin/main.rs"
+
+[lib]
+name = "discord_api"
+path = "lib/lib.rs"
