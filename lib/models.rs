@@ -1,6 +1,6 @@
 use serde::Deserialize;
 
-/// A struct representing a Discord guild invite, fetched through [discord_api::get_invite](../http/fn.get_invite.html)
+/// A struct representing a Discord guild invite, fetched through [`discord_api::get_invite`](../http/fn.get_invite.html)
 #[derive(Deserialize, Debug)]
 pub struct Invite {
     /// The Discord guild the invite points to

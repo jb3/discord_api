@@ -31,7 +31,7 @@ pub async fn handle_input(matches: &ArgMatches) {
                     println!("\n{}\n", guild.name.bold().underline().cyan());
 
                     debug!("Fetching description");
-                    let description_text = if let None = welcome.description {
+                    let description_text = if welcome.description.is_none() {
                         debug!("No description set.");
                         String::from("No description set")
                     } else {

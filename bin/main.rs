@@ -7,8 +7,8 @@ mod apps;
 
 use log::Level;
 
-const VERSION: &'static str = env!("CARGO_PKG_VERSION");
-const DESCRIPTION: &'static str = env!("CARGO_PKG_DESCRIPTION");
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+const DESCRIPTION: &str = env!("CARGO_PKG_DESCRIPTION");
 
 #[tokio::main]
 async fn main() -> Result<(), reqwest::Error> {

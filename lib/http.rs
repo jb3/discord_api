@@ -12,7 +12,7 @@ fn create_client() -> Client {
         .build().expect("Could not build HTTP client")
 }
 
-/// Builds a route using the constant API_BASE to the specified path
+/// Builds a route using the constant `API_BASE` to the specified path
 fn build_route(path: &str) -> String {
     debug!("Building route to: {}", path);
     format!("{}{}", API_BASE, path)
@@ -20,7 +20,7 @@ fn build_route(path: &str) -> String {
 
 /// Fetches an invite from the Discord API.
 ///
-/// Examples
+/// # Examples
 ///
 /// ```
 /// # #[tokio::main]
@@ -32,6 +32,10 @@ fn build_route(path: &str) -> String {
 /// println!("Guild invite for: {}", guild_invite.guild.expect("No guild found!").name);
 /// # }
 /// ```
+///
+/// # Errors
+///
+/// In the event that the Discord API returns an non-200 response a reqwest error will be returned.
 pub async fn get_invite<T: std::fmt::Display>(code: T) -> Result<Invite, Error> {
     info!("Starting request to get invite: {}", code);
     let invite: Invite = create_client()
