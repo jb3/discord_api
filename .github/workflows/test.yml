@@ -2,7 +2,7 @@ name: Clippy lint
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, devel ]
   pull_request:
     branches: [ master ]
 
@@ -22,3 +22,19 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-features -- -W clippy::pedantic -W clippy::all -W clippy::nursery
+
+      - name: Run cargo fmt
+        uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run cargo test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
