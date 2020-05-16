@@ -7,11 +7,12 @@ use colored::Colorize;
 pub fn get_app() -> App<'static> {
     App::new("welcome")
         .about("Fetch the welcome screen of a guild from an invite")
-        .arg(Arg::with_name("invite")
-            .takes_value(true)
-            .index(1)
-            .about("The invite to fetch the welcome screen from")
-            .required(true)
+        .arg(
+            Arg::with_name("invite")
+                .takes_value(true)
+                .index(1)
+                .about("The invite to fetch the welcome screen from")
+                .required(true),
         )
 }
 
@@ -45,7 +46,12 @@ pub async fn handle_input(matches: &ArgMatches) {
                         let chan_id = channel.channel_id;
                         let description = channel.description;
 
-                        println!("{} - {} - {}", channel.emoji_name, chan_id.dimmed(), description.bold());
+                        println!(
+                            "{} - {} - {}",
+                            channel.emoji_name,
+                            chan_id.dimmed(),
+                            description.bold()
+                        );
                     }
                 } else {
                     error!("Could not fetch welcome screen");

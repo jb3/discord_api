@@ -7,11 +7,12 @@ use colored::Colorize;
 pub fn get_app() -> App<'static> {
     App::new("features")
         .about("Fetch the features of a guild from an invite")
-        .arg(Arg::with_name("invite")
-            .takes_value(true)
-            .index(1)
-            .about("The invite to fetch features from")
-            .required(true)
+        .arg(
+            Arg::with_name("invite")
+                .takes_value(true)
+                .index(1)
+                .about("The invite to fetch features from")
+                .required(true),
         )
 }
 

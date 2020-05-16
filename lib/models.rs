@@ -4,7 +4,7 @@ use serde::Deserialize;
 #[derive(Deserialize, Debug)]
 pub struct Invite {
     /// The Discord guild the invite points to
-    pub guild: Option<InviteGuild>
+    pub guild: Option<InviteGuild>,
 }
 
 /// A struct representing a guild that an invite points to
@@ -15,7 +15,7 @@ pub struct InviteGuild {
     /// A list of feature flags the guild has
     pub features: Vec<String>,
     /// The configured welcome screen for public guilds
-    pub welcome_screen: Option<WelcomeScreen>
+    pub welcome_screen: Option<WelcomeScreen>,
 }
 
 /// The welcome screen presented to a user when they join the guild
@@ -24,7 +24,7 @@ pub struct WelcomeScreen {
     /// A description of the server displayed in the welcome screen
     pub description: Option<String>,
     /// A list of channels which are displayed in the welcome screen
-    pub welcome_channels: Vec<WelcomeChannel>
+    pub welcome_channels: Vec<WelcomeChannel>,
 }
 
 /// A channel listed in the welcome screen
@@ -37,5 +37,5 @@ pub struct WelcomeChannel {
     /// The emoji ID of the channel (None if not a custom emote)
     pub emoji_id: Option<String>,
     /// The emoji, if unicode it is the unicode character else it is the name of the custom emote
-    pub emoji_name: String
+    pub emoji_name: String,
 }

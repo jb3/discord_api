@@ -1,4 +1,4 @@
-use reqwest::{Error, Client};
+use reqwest::{Client, Error};
 
 use crate::models::Invite;
 
@@ -9,7 +9,8 @@ fn create_client() -> Client {
     debug!("Creating new HTTP client");
     Client::builder()
         .user_agent("DiscordBot (https://github.com/jos-b/discord, 1.0)")
-        .build().expect("Could not build HTTP client")
+        .build()
+        .expect("Could not build HTTP client")
 }
 
 /// Builds a route using the constant `API_BASE` to the specified path
