@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Invite","A struct representing a Discord guild invite, fetched through `discord_api::get_invite`"],["InviteGuild","A struct representing a guild that an invite points to"],["WelcomeChannel","A channel listed in the welcome screen"],["WelcomeScreen","The welcome screen presented to a user when they join the guild"]]});
