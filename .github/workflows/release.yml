@@ -7,9 +7,9 @@ on:
 
 jobs:
   publish:
-    steps:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
+    steps:
       - uses: actions/checkout@v1
       - run: cargo login ${CRATES_IO_TOKEN}
         env:
