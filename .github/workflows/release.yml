@@ -1,12 +1,15 @@
+name: Release to Crates.io
+
 on:
   release:
     types:
       - published
 
-steps:
+jobs:
   publish:
-    - uses: actions/checkout@v1
-    - run: cargo login ${CRATES_IO_TOKEN}
-      env:
-          CRATES_IO_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
-    - run: cargo publish
+    steps:
+      - uses: actions/checkout@v1
+      - run: cargo login ${CRATES_IO_TOKEN}
+        env:
+            CRATES_IO_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
+      - run: cargo publish
