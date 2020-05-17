@@ -1,6 +1,6 @@
 # Discord
 
-![build status](https://img.shields.io/github/workflow/status/jos-b/discord_api/Test & Lint?style=for-the-badge)
+![status](https://img.shields.io/github/workflow/status/jos-b/discord_api/Test & Lint?style=for-the-badge)
 ![Crates.io](https://img.shields.io/crates/v/discord_api?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/jos-b/discord_api?style=for-the-badge)
 
