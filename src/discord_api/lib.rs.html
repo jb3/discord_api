@@ -30,6 +30,21 @@
 <span id="30">30</span>
 <span id="31">31</span>
 <span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! A library for fetching various structures from the Discord API. This is not a fully fledged Discord wrapper</span>
 <span class="doccomment">//! nor does it attempt to be. It contains some structures deemed useful.</span>
@@ -39,20 +54,35 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Examples</span>
 <span class="doccomment">//!</span>
+<span class="doccomment">//! Fetch a guild name from an invite code</span>
+<span class="doccomment">//! ```</span>
+<span class="doccomment">//! # #[tokio::main]</span>
+<span class="doccomment">//! # async fn main() -&gt; Result&lt;(), reqwest::Error&gt; {</span>
+<span class="doccomment">//! use discord_api::get_invite;</span>
+<span class="doccomment">//! let invite = get_invite(&quot;python&quot;).await?;</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! if let Some(guild) = invite.guild {</span>
+<span class="doccomment">//!   println!(&quot;Invite for: {}&quot;, guild.name);</span>
+<span class="doccomment">//! }</span>
+<span class="doccomment">//! # Ok(())</span>
+<span class="doccomment">//! # }</span>
+<span class="doccomment">//! ```</span>
+<span class="doccomment">//!</span>
 <span class="doccomment">//! Fetch a guild invite and list the features</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//! # #[tokio::main]</span>
-<span class="doccomment">//! # async fn main() {</span>
+<span class="doccomment">//! # async fn main() -&gt; Result&lt;(), reqwest::Error&gt; {</span>
 <span class="doccomment">//! use discord_api::get_invite;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! let invite = get_invite(&quot;python&quot;).await.unwrap();</span>
+<span class="doccomment">//! let invite = get_invite(&quot;python&quot;).await?;</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! if let Some(guild) = invite.guild {</span>
 <span class="doccomment">//!   for feature in guild.features {</span>
 <span class="doccomment">//!     println!(&quot;{}&quot;, feature);</span>
 <span class="doccomment">//!   }</span>
 <span class="doccomment">//! }</span>
+<span class="doccomment">//! # Ok(())</span>
 <span class="doccomment">//! # }</span>
 <span class="doccomment">//! ```</span>
 
