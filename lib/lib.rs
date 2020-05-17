@@ -6,20 +6,35 @@
 //!
 //! # Examples
 //!
+//! Fetch a guild name from an invite code
+//! ```
+//! # #[tokio::main]
+//! # async fn main() -> Result<(), reqwest::Error> {
+//! use discord_api::get_invite;
+//! let invite = get_invite("python").await?;
+//!
+//! if let Some(guild) = invite.guild {
+//!   println!("Invite for: {}", guild.name);
+//! }
+//! # Ok(())
+//! # }
+//! ```
+//!
 //! Fetch a guild invite and list the features
 //!
 //! ```
 //! # #[tokio::main]
-//! # async fn main() {
+//! # async fn main() -> Result<(), reqwest::Error> {
 //! use discord_api::get_invite;
 //!
-//! let invite = get_invite("python").await.unwrap();
+//! let invite = get_invite("python").await?;
 //!
 //! if let Some(guild) = invite.guild {
 //!   for feature in guild.features {
 //!     println!("{}", feature);
 //!   }
 //! }
+//! # Ok(())
 //! # }
 //! ```
 
